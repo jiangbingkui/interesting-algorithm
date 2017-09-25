@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>sort</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var data = [3, 0, 7, 9, 121, 31223, 123, 4, 523, 5, 31, 23, 59, 53, 12, 51, 95, 23, 53, 100];
+		function swapI(data, i, j) {
+			var temp = data[i];
+			data[i] = data[j];
+			data[j] = data[i];
+		}
+		function bubbleSort() {
+			for(var k = 0; k < data.length; k++) {
+				for(var i = k; i < data.length; i++) {
+					if (data[k] > data[i+1]) {
+						swapI(data, i, i+1);
+					}
+				}
+			}
+		}
+		function insertionSort(data) {
+			var temp;
+			loopK:
+			for(var k = 0; k < data.length; k++) {
+				for(var i = k; i >= 0; i--) {
+					temp = data[k+1];
+					if ( typeof temp == 'undefined' ) {
+						break;
+					}
+					if (temp > data[i]) {
+						// 将未排序区的k+1,插入到排序区i后面
+						data.splice(k+1, 1);
+						data.splice(i+1, 0, temp);
+						continue loopK;
+					} else if ( i == 0 ) {
+						// 将未排序区的k+1,插入到排序区i后面
+						data.splice(k+1, 1);
+						data.splice(i, 0, temp);
+						continue loopK;
+					}
+				}
+			}
+		}
+		// 1
+		// bubbleSort(data);
+		// 2
+		// insertionSort(data);
+		console.log(data)
+	</script>
+</body>
+</html>

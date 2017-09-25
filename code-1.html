@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>回文数</title>
+</head>
+<body>
+   	<script type="text/comment">
+   		var countTime = new Date().getTime();
+   		var i = 11;
+   		// 求2进制、8进制和10进制均是回文数，并且大于10中的回文数中最小的那一项
+   		while(true) {
+   			var toBit2 = toBit(i, 2);
+   			var toBit8 = toBit(i, 8);
+   			if ( toBit2.slice().reverse().join('') === toBit2.join('') 
+   				&& toBit8.slice().reverse().join('') === toBit8.join('') 
+   				&& i.toString().split('').reverse().join('') === i.toString() ) {
+   				console.log(i);
+   				console.log(`found it, cost time ${new Date().getTime() - countTime}ms`);
+   				break;
+   			}
+
+   			if (i > 10e6) {
+   				console.log(`not found util 10e6, cost time ${new Date().getTime() - countTime}ms`);
+   				break;
+   			}
+   			i = i + 2;
+   		}
+
+   		function toBit (num, bit, returned) {
+			returned = returned || [];
+			if ( num < bit ) {
+				returned.unshift(num);
+				return returned;
+			}
+			returned.unshift(num % bit);
+			num = Math.floor(num / bit);
+			return toBit(num, bit, returned);
+   		}
+   	</script>
+   	<script type="text/javascript">
+   		var countTime = new Date().getTime();
+   		var i = 11;
+   		// 求2进制、8进制和10进制均是回文数，并且大于10中的回文数中最小的那一项
+   		while(true) {
+   			if ( strReverse(i, 2) === i.toString(2) 
+   				&& strReverse(i, 8) === i.toString(8) 
+   				&& strReverse(i, 10) === i.toString() ) {
+   				console.log(i);
+   				console.log(`found it, cost time ${new Date().getTime() - countTime}ms`);
+   				break;
+   			}
+
+   			if (i > 10e6) {
+   				console.log(`not found util 10e6, cost time ${new Date().getTime() - countTime}ms`);
+   				break;
+   			}
+   			i = i + 2;
+   		}
+   		function strReverse (num, bit) {
+   			return num.toString(bit).split('').reverse().join('');
+   		}
+   	</script>
+</body>
+</html>

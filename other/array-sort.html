@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>array sort</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var k1 = [
+			{name:'a', sessionExt: {stickSwitch: 0}},
+			{name:'b', sessionExt: {stickSwitch: 1, stickTime: 2018}},
+			{name:'c', sessionExt: {stickSwitch: 0}},
+			{name:'d', sessionExt: {stickSwitch: 0}},
+			{name:'e', sessionExt: {stickSwitch: 1, stickTime: 2017}},
+		];
+		k1.sort(function (aItem, bItem) {
+            console.log(aItem, bItem)
+	        // 字段不存在时容错判断
+            if ( !aItem.sessionExt || !bItem.sessionExt ) {
+                return 0;
+            }
+            // aItem bItem 均置顶，比较置顶时间
+            if ( aItem.sessionExt.stickSwitch && bItem.sessionExt.stickSwitch ) {
+                return bItem.sessionExt.stickTime - aItem.sessionExt.stickTime;
+            } else if ( aItem.sessionExt.stickSwitch && !bItem.sessionExt.stickSwitch ) {
+                return -1;
+            } else if ( !aItem.sessionExt.stickSwitch && bItem.sessionExt.stickSwitch ) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+        console.table(k1)
+		var k2 = [
+			{name:'a', sessionExt: {stickSwitch: 0}},
+			{name:'b', sessionExt: {stickSwitch: 0}},
+			{name:'c', sessionExt: {stickSwitch: 0}},
+			{name:'d', sessionExt: {stickSwitch: 0}},
+			{name:'e', sessionExt: {stickSwitch: 0}},
+		];
+		k2.sort(function (aItem, bItem) {
+            console.log(aItem, bItem)
+	        // 字段不存在时容错判断
+            if ( !aItem.sessionExt || !bItem.sessionExt ) {
+                return 0;
+            }
+            // aItem bItem 均置顶，比较置顶时间
+            if ( aItem.sessionExt.stickSwitch && bItem.sessionExt.stickSwitch ) {
+                return bItem.sessionExt.stickTime - aItem.sessionExt.stickTime;
+            } else if ( aItem.sessionExt.stickSwitch && !bItem.sessionExt.stickSwitch ) {
+                return -1;
+            } else if ( !aItem.sessionExt.stickSwitch && bItem.sessionExt.stickSwitch ) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+        console.table(k2)
+		var k3 = [
+			{name:'a', sessionExt: {stickSwitch: 1, stickTime: 2017}},
+			{name:'b', sessionExt: {stickSwitch: 0}},
+			{name:'c', sessionExt: {stickSwitch: 1, stickTime: 2019}},
+			{name:'d', sessionExt: {stickSwitch: 0}},
+			{name:'e', sessionExt: {stickSwitch: 0}},
+		];
+		k3.sort(function (aItem, bItem) {
+            console.log(aItem, bItem)
+	        // 字段不存在时容错判断
+            if ( !aItem.sessionExt || !bItem.sessionExt ) {
+                return 0;
+            }
+            // aItem bItem 均置顶，比较置顶时间
+            if ( aItem.sessionExt.stickSwitch && bItem.sessionExt.stickSwitch ) {
+                return bItem.sessionExt.stickTime - aItem.sessionExt.stickTime;
+            } else if ( aItem.sessionExt.stickSwitch && !bItem.sessionExt.stickSwitch ) {
+                return -1;
+            } else if ( !aItem.sessionExt.stickSwitch && bItem.sessionExt.stickSwitch ) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+        console.table(k3)
+		var k4 = [
+			{name:'a', sessionExt: {stickSwitch: 0}},
+			{name:'b', sessionExt: {stickSwitch: 1, stickTime: 2017}},
+			{name:'c', sessionExt: {stickSwitch: 0}},
+			{name:'d', sessionExt: {stickSwitch: 1, stickTime: 2016}},
+			{name:'e', sessionExt: {stickSwitch: 1, stickTime: 2014}},
+		];
+		k4.sort(function (aItem, bItem) {
+            console.log(aItem, bItem)
+	        // 字段不存在时容错判断
+            if ( !aItem.sessionExt || !bItem.sessionExt ) {
+                return 0;
+            }
+            // aItem bItem 均置顶，比较置顶时间
+            if ( aItem.sessionExt.stickSwitch && bItem.sessionExt.stickSwitch ) {
+                return bItem.sessionExt.stickTime - aItem.sessionExt.stickTime;
+            } else if ( aItem.sessionExt.stickSwitch && !bItem.sessionExt.stickSwitch ) {
+                return -1;
+            } else if ( !aItem.sessionExt.stickSwitch && bItem.sessionExt.stickSwitch ) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+        console.table(k4)
+	</script>
+</body>
+</html>
