@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>数列的四则运算</title>
+</head>
+<body>
+   	<script type="text/javascript">
+         performance.mark('mark-start');
+         // const operators = ['+', '-', '*', '/', ''];
+         const operators = ['*', ''];
+         for( let i = 1000; i < 10000; i++) {
+            const num = String(i);
+            for( let j = 0; j < operators.length; j++) {
+               for( let k = 0; k < operators.length; k++) {
+                  for( let l = 0; l < operators.length; l++) {
+                     const calc = `${num.charAt(3)}${operators[j]}${num.charAt(2)}${operators[k]}${num.charAt(1)}${operators[l]}${num.charAt(0)}`;
+                     if ( calc.length > 4 && eval(calc) === i ) {
+                        console.log(calc, i);
+                     }
+                  }
+               }
+            }
+         }
+         performance.mark('cacl-end');
+         performance.measure('cacl', 'mark-start', 'mark-end');
+         let measures = performance.getEntriesByName('calc');
+         console.log(measures[0]);
+   	</script>
+</body>
+</html>
