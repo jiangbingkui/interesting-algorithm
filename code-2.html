@@ -21,9 +21,9 @@
                }
             }
          }
-         performance.mark('cacl-end');
-         performance.measure('cacl', 'mark-start', 'mark-end');
-         let measures = performance.getEntriesByName('calc');
+         performance.mark('mark-end');
+         performance.measure('mark', 'mark-start', 'mark-end');
+         let measures = performance.getEntriesByName('mark');
          console.log(measures[0]);
    	</script>
 </body>

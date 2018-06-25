@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>翻牌</title>
+</head>
+<body>
+   	<script type="text/javascript">
+         performance.mark('mark-start');
+         const LEN = 100;
+         let arr = new Array(LEN).fill(1).map((i, j) => j + 1);
+         for (var i = 1; i < LEN; i++) {
+            for (var j = i + 1; j <= LEN; j = j + i + 1) {
+               arr[j-1] = -arr[j-1];
+            }
+         }
+         arr = arr.filter(i => i > 0);
+         console.log(arr);
+         performance.mark('mark-end');
+         performance.measure('mark', 'mark-start', 'mark-end');
+         let measures = performance.getEntriesByName('mark');
+         console.log(measures[0]);
+   	</script>
+</body>
+</html>
